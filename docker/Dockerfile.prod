@@ -1,0 +1,21 @@
+# сборка в режиме production
+
+# базовый образ:
+FROM node:24.13-alpine
+
+# рабочая директория внутри контейнера:
+WORKDIR /app
+
+# копируем package.json и package-lock.json (для кэширования npm install):
+COPY package*.json ./
+
+# устанавливаем зависимости (в production - только dependencies, а devDependencies пропускаем):
+RUN npm install --omit=dev
+
+# копируем исходники:
+COPY index.js ./
+COPY public/ ./public/
+COPY src/ ./src/
+
+# скрипт запуска из package.json:
+CMD ["npm", "run", "start"]
