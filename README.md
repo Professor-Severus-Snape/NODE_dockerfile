@@ -27,3 +27,7 @@
 1. Создан docker-compose.yml, запуск которого поднимает оба приложения и позволяет продемонстрировать работу счётчика.
 
 В исходном коде приложения должен появиться docker-compose.yml.
+
+## Реализация:
+1. Проект является продолжением [работы](https://github.com/Professor-Severus-Snape/NODE_middleware) с библиотекой `Express`.
+2. Образ контейнеризированного приложения «Библиотека» опубликован [здесь](https://hub.docker.com/repository/docker/professorseverussnape/hw-dockerfile/general).
