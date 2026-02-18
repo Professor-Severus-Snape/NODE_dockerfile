@@ -1,0 +1,54 @@
+<section class="book-form">
+  <h2 class="book-form__title">Редактировать книгу</h2>
+
+  <!-- Формы -> только GET или POST-запросы (нет ни PUT, ни PATCH, ни DELETE) -->
+  <form
+    class="book-form__body"
+    action="/actions/books/<%= book.id %>/update"
+    method="POST"
+  >
+    <!-- скрытое поле с url редиректа: -->
+    <input type="hidden" name="redirectTo" value="<%= currentUrl %>" />
+
+    <label class="book-form__label">
+      Название
+      <input
+        type="text"
+        name="title"
+        value="<%= book.title %>"
+        class="book-form__input"
+      />
+    </label>
+
+    <label class="book-form__label">
+      Авторы
+      <input
+        type="text"
+        name="authors"
+        value="<%= book.authors %>"
+        class="book-form__input"
+      />
+    </label>
+
+    <label class="book-form__label">
+      Описание
+      <textarea name="description" class="book-form__textarea"><%= book.description %></textarea>
+    </label>
+
+    <label class="book-form__label">
+      Закладки
+      <input
+        type="text"
+        name="favorite"
+        value="<%= book.favorite %>"
+        class="book-form__input"
+      />
+    </label>
+
+    <div class="book-form__actions">
+      <button type="submit" class="book-form__btn book-form__btn_submit">Обновить</button>
+      <!-- url редиректа для возврата назад: -->
+      <a href="<%= currentUrl %>" class="book-form__btn book-form__btn_cancel">Отмена</a>
+    </div>
+  </form>
+</section>

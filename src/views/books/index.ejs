@@ -1,0 +1,35 @@
+<section class="books">
+  <h2 class="books__title"><%= title %></h2>
+
+  <% if (books.length) { %>
+  <ul class="books__list">
+    <% books.forEach(book => { %>
+    <li class="book-card">
+      <div class="book-card__content">
+        <h3 class="book-card__title"><%= book.title %></h3>
+        <p class="book-card__text"><span>Авторы: </span><%= book.authors %></p>
+        <p class="book-card__text">
+          <span>Описание: </span><%= book.description %>
+        </p>
+      </div>
+      <div class="book-card__actions">
+        <!-- Ссылки -> только GET-запросы: -->
+        <a href="/books/<%= book.id %>" class="book-card__link">Просмотр</a>
+        <a
+          href="/books/<%= book.id %>/update"
+          class="book-card__link book-card__link_update"
+        >
+          ✎
+        </a>
+        <!-- Формы -> только GET или POST-запросы (нет ни PUT, ни PATCH, ни DELETE) -->
+        <form action="/actions/books/<%= book.id %>/delete" method="POST">
+          <button class="book-card__btn book-card__btn_delete">✘</button>
+        </form>
+      </div>
+    </li>
+    <% }) %>
+  </ul>
+  <% } else { %>
+  <p class="books__empty">Кажется, библиотека пока пуста...</p>
+  <% } %>
+</section>

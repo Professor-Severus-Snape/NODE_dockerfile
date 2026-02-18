@@ -1,0 +1,40 @@
+<section class="book-form">
+  <h2 class="book-form__title">Добавить книгу</h2>
+
+  <form
+    class="book-form__body"
+    action="/actions/books/create"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <label class="book-form__label">
+      Название
+      <input type="text" name="title" class="book-form__input" />
+    </label>
+
+    <label class="book-form__label">
+      Авторы
+      <input type="text" name="authors" class="book-form__input" />
+    </label>
+
+    <label class="book-form__label">
+      Описание
+      <textarea name="description" class="book-form__textarea"></textarea>
+    </label>
+
+    <label class="book-form__label">
+      Закладки
+      <input type="text" name="favorite" class="book-form__input" />
+    </label>
+
+    <label class="book-form__label">
+      Файл книги
+      <input type="file" name="fileBook" class="book-form__input" />
+    </label>
+
+    <div class="book-form__actions">
+      <button type="submit" class="book-form__btn book-form__btn_submit">Сохранить</button>
+      <a href="/books" class="book-form__btn book-form__btn_cancel">Отмена</a>
+    </div>
+  </form>
+</section>

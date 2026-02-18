@@ -1,0 +1,16 @@
+<section class="book">
+  <h2 class="book__title"><%= book.title %></h2>
+
+  <ul class="book__info">
+    <li class="book__item"><span>Авторы: </span><%= book.authors %></li>
+    <li class="book__item"><span>Описание: </span><%= book.description %></li>
+    <li class="book__item"><span>Закладки: </span><%= book.favorite %></li>
+    <li class="book__item"><span>Имя файла: </span><%= book.fileBook %></li>
+  </ul>
+
+  <div class="book__actions">
+    <a href="/books/<%= book.id %>/update" class="book__link">Редактировать</a>
+    <a href="/actions/books/<%= book.id %>/download" class="book__link">Скачать</a>
+    <a href="/books" class="book__link book__link_back">Назад</a>
+  </div>
+</section>
