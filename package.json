@@ -10,11 +10,11 @@
     "lint:fix": "eslint . --fix",
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "docker:build:prod": "docker build -f docker/Dockerfile.prod -t professorseverussnape/hw-dockerfile:latest .",
-    "docker:run:prod": "docker run --rm --name container-hw-dockerfile-prod -e PORT=3000 -p 3000:3000 professorseverussnape/hw-dockerfile:latest",
-    "docker:push:prod": "docker push professorseverussnape/hw-dockerfile:latest",
-    "docker:build:dev": "docker build -f docker/Dockerfile.dev -t image-hw-dockerfile .",
-    "docker:run:dev": "docker run -it --rm --name container-hw-dockerfile -e PORT=3000 -p 3000:3000 -v $(pwd):/app -v /app/node_modules image-hw-dockerfile"
+    "docker:build:prod": "docker build -f docker/Dockerfile.prod -t professorseverussnape/hw-dockerfile .",
+    "docker:run:prod": "docker run -d --rm --name container-dockerfile -e PORT=3000 -p 3000:3000 professorseverussnape/hw-dockerfile",
+    "docker:push:prod": "docker push professorseverussnape/hw-dockerfile",
+    "docker:build:dev": "docker build -f docker/Dockerfile.dev -t image-dockerfile-dev .",
+    "docker:run:dev": "docker run -it --rm --name container-dockerfile-dev -e PORT=3000 -p 3000:3000 -v $(pwd):/app -v /app/node_modules image-dockerfile-dev"
   },
   "dependencies": {
     "ejs": "^4.0.1",
@@ -27,6 +27,6 @@
     "@eslint/js": "^10.0.1",
     "eslint": "^10.0.0",
     "globals": "^17.3.0",
-    "nodemon": "^3.1.11"
+    "nodemon": "^3.1.13"
   }
 }

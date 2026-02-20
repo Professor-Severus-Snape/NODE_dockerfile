@@ -1,8 +1,4 @@
-// делаем файл .env в корне проекта необязательным (защита от падений):
-try {
-  process.loadEnvFile();
-} catch {}
-
 export default {
-  port: process.env.PORT || 3000,
+  PORT: process.env.PORT || 3000,
+  MICROSERVICE_URL: process.env.MICROSERVICE_URL || 'http://localhost:4000',
 };

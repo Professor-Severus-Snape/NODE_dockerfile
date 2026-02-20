@@ -12,10 +12,8 @@ COPY package*.json ./
 # устанавливаем все зависимости (dependencies и devDependencies):
 RUN npm install
 
-# копируем исходники:
-COPY index.js ./
-COPY public/ ./public/
-COPY src/ ./src/
+# копируем весь проект (исключая перечень из .dockerignore):
+COPY . .
 
 # скрипт запуска из package.json:
 CMD ["npm", "run", "dev"]

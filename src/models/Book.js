@@ -4,6 +4,7 @@ export default class Book {
   static EMPTY = 'нет данных';
 
   constructor({
+    id,
     title = Book.EMPTY,
     description = Book.EMPTY,
     authors = Book.EMPTY,
@@ -12,7 +13,7 @@ export default class Book {
     fileName = Book.EMPTY,
     fileBook = Book.EMPTY, // имя! загруженного файла книги
   } = {}) {
-    this.id = uuid();
+    this.id = id ?? uuid();
     this.title = title;
     this.description = description;
     this.authors = authors;
@@ -27,6 +28,7 @@ export default class Book {
     { length: 5 },
     (_, i) =>
       new Book({
+        id: `${i + 1}`, // чтобы проверить сохранение данных при рестарте приложения
         title: `Книга #${i + 1}`,
         description:
           'Lorem ipsum dolor sit amet consectetur adipisicing elit. ' +

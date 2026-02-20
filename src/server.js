@@ -1,10 +1,12 @@
 import app from './app.js';
 import config from './config/index.js';
 
-const startServer = async() => {
+const { PORT } = config;
+
+const startServer = async () => {
   try {
-    app.listen(config.port, () =>
-      console.log(`The server is running on http://localhost:${config.port}`),
+    app.listen(PORT, () =>
+      console.log(`The server is running on http://localhost:${PORT}`),
     );
   } catch (error) {
     console.error(error);

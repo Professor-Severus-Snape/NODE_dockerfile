@@ -105,11 +105,28 @@ body {
   gap: 1rem;
 
   width: 250px;
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 1rem;
   border-radius: 12px;
 
   background: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.book-card__views {
+  align-self: center;
+
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #2980b9;
+
+  background: #eaf4fb;
 }
 
 .book-card__content {
