@@ -1,0 +1,30 @@
+{
+  "name": "counter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "author": "professor-severus-snape",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "docker:build:prod": "docker build -f Dockerfile.prod -t professorseverussnape/counter .",
+    "docker:run:prod": "docker run -d --rm --name container-counter -e PORT=4000 -p 4000:4000 professorseverussnape/counter",
+    "docker:push:prod": "docker push professorseverussnape/counter",
+    "docker:build:dev": "docker build -f Dockerfile.dev -t image-counter-dev .",
+    "docker:run:dev": "docker run -it --rm --name container-counter-dev -e PORT=4000 -p 4000:4000 -v $(pwd):/app -v /app/node_modules image-counter-dev",
+    "redis:start": "docker run -d --rm --name redis-container -p 6379:6379 redis"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "redis": "^5.11.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.1",
+    "globals": "^17.3.0",
+    "nodemon": "^3.1.13"
+  }
+}

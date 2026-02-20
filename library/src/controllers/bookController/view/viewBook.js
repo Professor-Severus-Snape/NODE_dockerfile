@@ -3,7 +3,7 @@ import Book from '../../../models/Book.js';
 
 const { MICROSERVICE_URL } = config;
 
-export const renderBookById = async (req, res) => {
+export const renderBookById = async(req, res) => {
   const { id } = req.params;
   const { increment } = req.query;
 

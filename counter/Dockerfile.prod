@@ -3,6 +3,9 @@
 # базовый образ:
 FROM node:24.13-alpine
 
+# метаданные - указание на наличие лицензии:
+LABEL org.opencontainers.image.licenses="MIT"
+
 # рабочая директория внутри контейнера:
 WORKDIR /app
 
@@ -10,12 +13,11 @@ WORKDIR /app
 COPY package*.json ./
 
 # устанавливаем зависимости (в production - только dependencies, а devDependencies пропускаем):
-RUN npm install --omit=dev
+RUN npm ci --omit=dev
 
-# копируем исходники:
+# копируем только необходимые исходники:
 COPY index.js ./
-COPY public/ ./public/
-COPY src/ ./src/
+COPY LICENSE ./
 
 # скрипт запуска из package.json:
 CMD ["npm", "run", "start"]

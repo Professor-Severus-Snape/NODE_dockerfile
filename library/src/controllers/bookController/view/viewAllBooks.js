@@ -3,12 +3,12 @@ import Book from '../../../models/Book.js';
 
 const { MICROSERVICE_URL } = config;
 
-export const renderAllBooks = async (_req, res) => {
+export const renderAllBooks = async(_req, res) => {
   const books = Book.getAllBooks();
 
   // получаем количество просмотров каждой книги, если ошибка - вернём 0 просмотров:
   const booksWithViews = await Promise.all(
-    books.map(async (book) => {
+    books.map(async(book) => {
       try {
         const response = await fetch(`${MICROSERVICE_URL}/counter/${book.id}`);
 

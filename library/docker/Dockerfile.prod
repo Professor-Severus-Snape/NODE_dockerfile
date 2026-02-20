@@ -1,0 +1,25 @@
+# сборка в режиме production
+
+# базовый образ:
+FROM node:24.13-alpine
+
+# метаданные - указание на наличие лицензии:
+LABEL org.opencontainers.image.licenses="MIT"
+
+# рабочая директория внутри контейнера:
+WORKDIR /app
+
+# копируем package.json и package-lock.json (для кэширования npm install):
+COPY package*.json ./
+
+# устанавливаем зависимости (в production - только dependencies, а devDependencies пропускаем):
+RUN npm ci --omit=dev
+
+# копируем исходники:
+COPY index.js ./
+COPY public/ ./public/
+COPY src/ ./src/
+COPY LICENSE ./
+
+# скрипт запуска из package.json:
+CMD ["npm", "run", "start"]

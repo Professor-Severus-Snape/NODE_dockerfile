@@ -3,7 +3,7 @@ import config from './config/index.js';
 
 const { PORT } = config;
 
-const startServer = async () => {
+const startServer = async() => {
   try {
     app.listen(PORT, () =>
       console.log(`The server is running on http://localhost:${PORT}`),
