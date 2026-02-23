@@ -30,7 +30,10 @@
 
 ## Реализация:
 1. Проект является продолжением [работы](https://github.com/Professor-Severus-Snape/NODE_MVC) с библиотекой `Express`.
-2. Образ основного приложения `library` опубликован [здесь](https://hub.docker.com/repository/docker/professorseverussnape/library/general).
-3. Образ микросервиса `counter` опубликован [здесь](https://hub.docker.com/repository/docker/professorseverussnape/counter/general).
-4. Интеграция `library`, `counter` и `Redis` реализована через файлы docker-compose.dev.yml и docker-compose.prod.yml в корне данного репозитория.
-5. Cкрипты в package.json предусматривают возможность упрощённого ввода docker-команд для поднятия БД и каждого приложения по отдельности.
+1. Образ основного приложения `library` опубликован [здесь](https://hub.docker.com/repository/docker/professorseverussnape/library/general).
+1. Образ микросервиса `counter` опубликован [здесь](https://hub.docker.com/repository/docker/professorseverussnape/counter/general).
+1. Интеграция `library`, `counter` и `Redis` реализована через файлы docker-compose.dev.yml и docker-compose.prod.yml в корне данного репозитория:
+   - Запуск с режиме development - `docker compose -f docker-compose.dev.yml up --build`.
+   - Завершение работы в режиме development - `docker compose -f docker-compose.dev.yml down`.
+   - Запуск с режиме production - `docker compose -f docker-compose.prod.yml up --build`.
+   - Завершение работы в режиме production - `docker compose -f docker-compose.prod.yml down`.
