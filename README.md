@@ -33,7 +33,7 @@
 1. Образ основного приложения `library` опубликован [здесь](https://hub.docker.com/repository/docker/professorseverussnape/library/general).
 1. Образ микросервиса `counter` опубликован [здесь](https://hub.docker.com/repository/docker/professorseverussnape/counter/general).
 1. Интеграция `library`, `counter` и `Redis` реализована через файлы docker-compose.dev.yml и docker-compose.prod.yml в корне данного репозитория с возможностью одновременного запуска за счёт создания project names через `-p dev` и `-p prod`:
-   - Запуск с режиме development - `docker compose -f docker-compose.dev.yml -p dev up --build`.
+   - Запуск в режиме development - `docker compose -f docker-compose.dev.yml -p dev up --build`.
    - Завершение работы в режиме development - `docker compose -f docker-compose.dev.yml -p dev down`.
-   - Запуск с режиме production - `docker compose -f docker-compose.prod.yml -p prod up`.
+   - Запуск в режиме production - `docker compose -f docker-compose.prod.yml -p prod up`.
    - Завершение работы в режиме production - `docker compose -f docker-compose.prod.yml -p prod down`.
